@@ -1,0 +1,328 @@
+
+General
+ 2433 | Introduction       | https://cses.fi/problemset/text/2433
+      | Create new account | https://cses.fi/register/?open
+      | Statistics         | https://cses.fi/problemset/stats/
+
+Introductory Problems
+ 1068 | Weird Algorithm       | PASS | https://cses.fi/problemset/task/1068
+ 1083 | Missing Number        | PASS | https://cses.fi/problemset/task/1083
+ 1069 | Repetitions           | PASS | https://cses.fi/problemset/task/1069
+ 1094 | Increasing Array      | PASS | https://cses.fi/problemset/task/1094
+ 1070 | Permutations          | PASS | https://cses.fi/problemset/task/1070
+ 1071 | Number Spiral         | PASS | https://cses.fi/problemset/task/1071
+ 1072 | Two Knights           | PASS | https://cses.fi/problemset/task/1072
+ 1092 | Two Sets              |  --  | https://cses.fi/problemset/task/1092
+ 1617 | Bit Strings           |  --  | https://cses.fi/problemset/task/1617
+ 1618 | Trailing Zeros        |  --  | https://cses.fi/problemset/task/1618
+ 1754 | Coin Piles            |  --  | https://cses.fi/problemset/task/1754
+ 1755 | Palindrome Reorder    |  --  | https://cses.fi/problemset/task/1755
+ 2205 | Gray Code             |  --  | https://cses.fi/problemset/task/2205
+ 2165 | Tower of Hanoi        |  --  | https://cses.fi/problemset/task/2165
+ 1622 | Creating Strings      |  --  | https://cses.fi/problemset/task/1622
+ 1623 | Apple Division        |  --  | https://cses.fi/problemset/task/1623
+ 1624 | Chessboard and Queens |  --  | https://cses.fi/problemset/task/1624
+ 2431 | Digit Queries         |  --  | https://cses.fi/problemset/task/2431
+ 1625 | Grid Paths            |  --  | https://cses.fi/problemset/task/1625
+
+Sorting and Searching
+ 1621 | Distinct Numbers         | -- | https://cses.fi/problemset/task/1621
+ 1084 | Apartments               | -- | https://cses.fi/problemset/task/1084
+ 1090 | Ferris Wheel             | -- | https://cses.fi/problemset/task/1090
+ 1091 | Concert Tickets          | -- | https://cses.fi/problemset/task/1091
+ 1619 | Restaurant Customers     | -- | https://cses.fi/problemset/task/1619
+ 1629 | Movie Festival           | -- | https://cses.fi/problemset/task/1629
+ 1640 | Sum of Two Values        | -- | https://cses.fi/problemset/task/1640
+ 1643 | Maximum Subarray Sum     | -- | https://cses.fi/problemset/task/1643
+ 1074 | Stick Lengths            | -- | https://cses.fi/problemset/task/1074
+ 2183 | Missing Coin Sum         | -- | https://cses.fi/problemset/task/2183
+ 2216 | Collecting Numbers       | -- | https://cses.fi/problemset/task/2216
+ 2217 | Collecting Numbers II    | -- | https://cses.fi/problemset/task/2217
+ 1141 | Playlist                 | -- | https://cses.fi/problemset/task/1141
+ 1073 | Towers                   | -- | https://cses.fi/problemset/task/1073
+ 1163 | Traffic Lights           | -- | https://cses.fi/problemset/task/1163
+ 2162 | Josephus Problem I       | -- | https://cses.fi/problemset/task/2162
+ 2163 | Josephus Problem II      | -- | https://cses.fi/problemset/task/2163
+ 2168 | Nested Ranges Check      | -- | https://cses.fi/problemset/task/2168
+ 2169 | Nested Ranges Count      | -- | https://cses.fi/problemset/task/2169
+ 1164 | Room Allocation          | -- | https://cses.fi/problemset/task/1164
+ 1620 | Factory Machines         | -- | https://cses.fi/problemset/task/1620
+ 1630 | Tasks and Deadlines      | -- | https://cses.fi/problemset/task/1630
+ 1631 | Reading Books            | -- | https://cses.fi/problemset/task/1631
+ 1641 | Sum of Three Values      | -- | https://cses.fi/problemset/task/1641
+ 1642 | Sum of Four Values       | -- | https://cses.fi/problemset/task/1642
+ 1645 | Nearest Smaller Values   | -- | https://cses.fi/problemset/task/1645
+ 1660 | Subarray Sums I          | -- | https://cses.fi/problemset/task/1660
+ 1661 | Subarray Sums II         | -- | https://cses.fi/problemset/task/1661
+ 1662 | Subarray Divisibility    | -- | https://cses.fi/problemset/task/1662
+ 2428 | Subarray Distinct Values | -- | https://cses.fi/problemset/task/2428
+ 1085 | Array Division           | -- | https://cses.fi/problemset/task/1085
+ 1076 | Sliding Median           | -- | https://cses.fi/problemset/task/1076
+ 1077 | Sliding Cost             | -- | https://cses.fi/problemset/task/1077
+ 1632 | Movie Festival II        | -- | https://cses.fi/problemset/task/1632
+ 1644 | Maximum Subarray Sum II  | -- | https://cses.fi/problemset/task/1644
+
+Dynamic Programming
+ 1633 | Dice Combinations      | -- | https://cses.fi/problemset/task/1633
+ 1634 | Minimizing Coins       | -- | https://cses.fi/problemset/task/1634
+ 1635 | Coin Combinations I    | -- | https://cses.fi/problemset/task/1635
+ 1636 | Coin Combinations II   | -- | https://cses.fi/problemset/task/1636
+ 1637 | Removing Digits        | -- | https://cses.fi/problemset/task/1637
+ 1638 | Grid Paths             | -- | https://cses.fi/problemset/task/1638
+ 1158 | Book Shop              | -- | https://cses.fi/problemset/task/1158
+ 1746 | Array Description      | -- | https://cses.fi/problemset/task/1746
+ 2413 | Counting Towers        | -- | https://cses.fi/problemset/task/2413
+ 1639 | Edit Distance          | -- | https://cses.fi/problemset/task/1639
+ 1744 | Rectangle Cutting      | -- | https://cses.fi/problemset/task/1744
+ 1745 | Money Sums             | -- | https://cses.fi/problemset/task/1745
+ 1097 | Removal Game           | -- | https://cses.fi/problemset/task/1097
+ 1093 | Two Sets II            | -- | https://cses.fi/problemset/task/1093
+ 1145 | Increasing Subsequence | -- | https://cses.fi/problemset/task/1145
+ 1140 | Projects               | -- | https://cses.fi/problemset/task/1140
+ 1653 | Elevator Rides         | -- | https://cses.fi/problemset/task/1653
+ 2181 | Counting Tilings       | -- | https://cses.fi/problemset/task/2181
+ 2220 | Counting Numbers       | -- | https://cses.fi/problemset/task/2220
+
+Graph Algorithms
+ 1192 | Counting Rooms       | -- | https://cses.fi/problemset/task/1192
+ 1193 | Labyrinth            | -- | https://cses.fi/problemset/task/1193
+ 1666 | Building Roads       | -- | https://cses.fi/problemset/task/1666
+ 1667 | Message Route        | -- | https://cses.fi/problemset/task/1667
+ 1668 | Building Teams       | -- | https://cses.fi/problemset/task/1668
+ 1669 | Round Trip           | -- | https://cses.fi/problemset/task/1669
+ 1194 | Monsters             | -- | https://cses.fi/problemset/task/1194
+ 1671 | Shortest Routes I    | -- | https://cses.fi/problemset/task/1671
+ 1672 | Shortest Routes II   | -- | https://cses.fi/problemset/task/1672
+ 1673 | High Score           | -- | https://cses.fi/problemset/task/1673
+ 1195 | Flight Discount      | -- | https://cses.fi/problemset/task/1195
+ 1197 | Cycle Finding        | -- | https://cses.fi/problemset/task/1197
+ 1196 | Flight Routes        | -- | https://cses.fi/problemset/task/1196
+ 1678 | Round Trip II        | -- | https://cses.fi/problemset/task/1678
+ 1679 | Course Schedule      | -- | https://cses.fi/problemset/task/1679
+ 1680 | Longest Flight Route | -- | https://cses.fi/problemset/task/1680
+ 1681 | Game Routes          | -- | https://cses.fi/problemset/task/1681
+ 1202 | Investigation        | -- | https://cses.fi/problemset/task/1202
+ 1750 | Planets Queries I    | -- | https://cses.fi/problemset/task/1750
+ 1160 | Planets Queries II   | -- | https://cses.fi/problemset/task/1160
+ 1751 | Planets Cycles       | -- | https://cses.fi/problemset/task/1751
+ 1675 | Road Reparation      | -- | https://cses.fi/problemset/task/1675
+ 1676 | Road Construction    | -- | https://cses.fi/problemset/task/1676
+ 1682 | Flight Routes Check  | -- | https://cses.fi/problemset/task/1682
+ 1683 | Planets and Kingdoms | -- | https://cses.fi/problemset/task/1683
+ 1684 | Giant Pizza          | -- | https://cses.fi/problemset/task/1684
+ 1686 | Coin Collector       | -- | https://cses.fi/problemset/task/1686
+ 1691 | Mail Delivery        | -- | https://cses.fi/problemset/task/1691
+ 1692 | De Bruijn Sequence   | -- | https://cses.fi/problemset/task/1692
+ 1693 | Teleporters Path     | -- | https://cses.fi/problemset/task/1693
+ 1690 | Hamiltonian Flights  | -- | https://cses.fi/problemset/task/1690
+ 1689 | Knight's Tour        | -- | https://cses.fi/problemset/task/1689
+ 1694 | Download Speed       | -- | https://cses.fi/problemset/task/1694
+ 1695 | Police Chase         | -- | https://cses.fi/problemset/task/1695
+ 1696 | School Dance         | -- | https://cses.fi/problemset/task/1696
+ 1711 | Distinct Routes      | -- | https://cses.fi/problemset/task/1711
+
+Range Queries
+ 1646 | Static Range Sum Queries      | -- | https://cses.fi/problemset/task/1646
+ 1647 | Static Range Minimum Queries  | -- | https://cses.fi/problemset/task/1647
+ 1648 | Dynamic Range Sum Queries     | -- | https://cses.fi/problemset/task/1648
+ 1649 | Dynamic Range Minimum Queries | -- | https://cses.fi/problemset/task/1649
+ 1650 | Range Xor Queries             | -- | https://cses.fi/problemset/task/1650
+ 1651 | Range Update Queries          | -- | https://cses.fi/problemset/task/1651
+ 1652 | Forest Queries                | -- | https://cses.fi/problemset/task/1652
+ 1143 | Hotel Queries                 | -- | https://cses.fi/problemset/task/1143
+ 1749 | List Removals                 | -- | https://cses.fi/problemset/task/1749
+ 1144 | Salary Queries                | -- | https://cses.fi/problemset/task/1144
+ 2166 | Prefix Sum Queries            | -- | https://cses.fi/problemset/task/2166
+ 2206 | Pizzeria Queries              | -- | https://cses.fi/problemset/task/2206
+ 1190 | Subarray Sum Queries          | -- | https://cses.fi/problemset/task/1190
+ 1734 | Distinct Values Queries       | -- | https://cses.fi/problemset/task/1734
+ 2416 | Increasing Array Queries      | -- | https://cses.fi/problemset/task/2416
+ 1739 | Forest Queries II             | -- | https://cses.fi/problemset/task/1739
+ 1735 | Range Updates and Sums        | -- | https://cses.fi/problemset/task/1735
+ 1736 | Polynomial Queries            | -- | https://cses.fi/problemset/task/1736
+ 1737 | Range Queries and Copies      | -- | https://cses.fi/problemset/task/1737
+
+Tree Algorithms
+ 1674 | Subordinates          | -- | https://cses.fi/problemset/task/1674
+ 1130 | Tree Matching         | -- | https://cses.fi/problemset/task/1130
+ 1131 | Tree Diameter         | -- | https://cses.fi/problemset/task/1131
+ 1132 | Tree Distances I      | -- | https://cses.fi/problemset/task/1132
+ 1133 | Tree Distances II     | -- | https://cses.fi/problemset/task/1133
+ 1687 | Company Queries I     | -- | https://cses.fi/problemset/task/1687
+ 1688 | Company Queries II    | -- | https://cses.fi/problemset/task/1688
+ 1135 | Distance Queries      | -- | https://cses.fi/problemset/task/1135
+ 1136 | Counting Paths        | -- | https://cses.fi/problemset/task/1136
+ 1137 | Subtree Queries       | -- | https://cses.fi/problemset/task/1137
+ 1138 | Path Queries          | -- | https://cses.fi/problemset/task/1138
+ 2134 | Path Queries II       | -- | https://cses.fi/problemset/task/2134
+ 1139 | Distinct Colors       | -- | https://cses.fi/problemset/task/1139
+ 2079 | Finding a Centroid    | -- | https://cses.fi/problemset/task/2079
+ 2080 | Fixed-Length Paths I  | -- | https://cses.fi/problemset/task/2080
+ 2081 | Fixed-Length Paths II | -- | https://cses.fi/problemset/task/2081
+
+Mathematics
+ 2164 | Josephus Queries       | -- | https://cses.fi/problemset/task/2164
+ 1095 | Exponentiation         | -- | https://cses.fi/problemset/task/1095
+ 1712 | Exponentiation II      | -- | https://cses.fi/problemset/task/1712
+ 1713 | Counting Divisors      | -- | https://cses.fi/problemset/task/1713
+ 1081 | Common Divisors        | -- | https://cses.fi/problemset/task/1081
+ 1082 | Sum of Divisors        | -- | https://cses.fi/problemset/task/1082
+ 2182 | Divisor Analysis       | -- | https://cses.fi/problemset/task/2182
+ 2185 | Prime Multiples        | -- | https://cses.fi/problemset/task/2185
+ 2417 | Counting Coprime Pairs | -- | https://cses.fi/problemset/task/2417
+ 1079 | Binomial Coefficients  | -- | https://cses.fi/problemset/task/1079
+ 1715 | Creating Strings II    | -- | https://cses.fi/problemset/task/1715
+ 1716 | Distributing Apples    | -- | https://cses.fi/problemset/task/1716
+ 1717 | Christmas Party        | -- | https://cses.fi/problemset/task/1717
+ 2064 | Bracket Sequences I    | -- | https://cses.fi/problemset/task/2064
+ 2187 | Bracket Sequences II   | -- | https://cses.fi/problemset/task/2187
+ 2209 | Counting Necklaces     | -- | https://cses.fi/problemset/task/2209
+ 2210 | Counting Grids         | -- | https://cses.fi/problemset/task/2210
+ 1722 | Fibonacci Numbers      | -- | https://cses.fi/problemset/task/1722
+ 1096 | Throwing Dice          | -- | https://cses.fi/problemset/task/1096
+ 1723 | Graph Paths I          | -- | https://cses.fi/problemset/task/1723
+ 1724 | Graph Paths II         | -- | https://cses.fi/problemset/task/1724
+ 1725 | Dice Probability       | -- | https://cses.fi/problemset/task/1725
+ 1726 | Moving Robots          | -- | https://cses.fi/problemset/task/1726
+ 1727 | Candy Lottery          | -- | https://cses.fi/problemset/task/1727
+ 1728 | Inversion Probability  | -- | https://cses.fi/problemset/task/1728
+ 1729 | Stick Game             | -- | https://cses.fi/problemset/task/1729
+ 1730 | Nim Game I             | -- | https://cses.fi/problemset/task/1730
+ 1098 | Nim Game II            | -- | https://cses.fi/problemset/task/1098
+ 1099 | Stair Game             | -- | https://cses.fi/problemset/task/1099
+ 2207 | Grundy's Game          | -- | https://cses.fi/problemset/task/2207
+ 2208 | Another Game           | -- | https://cses.fi/problemset/task/2208
+
+String Algorithms
+ 1731 | Word Combinations      | -- | https://cses.fi/problemset/task/1731
+ 1753 | String Matching        | -- | https://cses.fi/problemset/task/1753
+ 1732 | Finding Borders        | -- | https://cses.fi/problemset/task/1732
+ 1733 | Finding Periods        | -- | https://cses.fi/problemset/task/1733
+ 1110 | Minimal Rotation       | -- | https://cses.fi/problemset/task/1110
+ 1111 | Longest Palindrome     | -- | https://cses.fi/problemset/task/1111
+ 1112 | Required Substring     | -- | https://cses.fi/problemset/task/1112
+ 2420 | Palindrome Queries     | -- | https://cses.fi/problemset/task/2420
+ 2102 | Finding Patterns       | -- | https://cses.fi/problemset/task/2102
+ 2103 | Counting Patterns      | -- | https://cses.fi/problemset/task/2103
+ 2104 | Pattern Positions      | -- | https://cses.fi/problemset/task/2104
+ 2105 | Distinct Substrings    | -- | https://cses.fi/problemset/task/2105
+ 2106 | Repeating Substring    | -- | https://cses.fi/problemset/task/2106
+ 2107 | String Functions       | -- | https://cses.fi/problemset/task/2107
+ 2108 | Substring Order I      | -- | https://cses.fi/problemset/task/2108
+ 2109 | Substring Order II     | -- | https://cses.fi/problemset/task/2109
+ 2110 | Substring Distribution | -- | https://cses.fi/problemset/task/2110
+
+Geometry
+ 2189 | Point Location Test        | -- | https://cses.fi/problemset/task/2189
+ 2190 | Line Segment Intersection  | -- | https://cses.fi/problemset/task/2190
+ 2191 | Polygon Area               | -- | https://cses.fi/problemset/task/2191
+ 2192 | Point in Polygon           | -- | https://cses.fi/problemset/task/2192
+ 2193 | Polygon Lattice Points     | -- | https://cses.fi/problemset/task/2193
+ 2194 | Minimum Euclidean Distance | -- | https://cses.fi/problemset/task/2194
+ 2195 | Convex Hull                | -- | https://cses.fi/problemset/task/2195
+
+Advanced Techniques
+ 1628 | Meet in the Middle   | -- | https://cses.fi/problemset/task/1628
+ 2136 | Hamming Distance     | -- | https://cses.fi/problemset/task/2136
+ 2137 | Beautiful Subgrids   | -- | https://cses.fi/problemset/task/2137
+ 2138 | Reachable Nodes      | -- | https://cses.fi/problemset/task/2138
+ 2143 | Reachability Queries | -- | https://cses.fi/problemset/task/2143
+ 2072 | Cut and Paste        | -- | https://cses.fi/problemset/task/2072
+ 2073 | Substring Reversals  | -- | https://cses.fi/problemset/task/2073
+ 2074 | Reversals and Sums   | -- | https://cses.fi/problemset/task/2074
+ 2076 | Necessary Roads      | -- | https://cses.fi/problemset/task/2076
+ 2077 | Necessary Cities     | -- | https://cses.fi/problemset/task/2077
+ 2078 | Eulerian Subgraphs   | -- | https://cses.fi/problemset/task/2078
+ 2084 | Monster Game I       | -- | https://cses.fi/problemset/task/2084
+ 2085 | Monster Game II      | -- | https://cses.fi/problemset/task/2085
+ 2086 | Subarray Squares     | -- | https://cses.fi/problemset/task/2086
+ 2087 | Houses and Schools   | -- | https://cses.fi/problemset/task/2087
+ 2088 | Knuth Division       | -- | https://cses.fi/problemset/task/2088
+ 2111 | Apples and Bananas   | -- | https://cses.fi/problemset/task/2111
+ 2112 | One Bit Positions    | -- | https://cses.fi/problemset/task/2112
+ 2113 | Signal Processing    | -- | https://cses.fi/problemset/task/2113
+ 2101 | New Roads Queries    | -- | https://cses.fi/problemset/task/2101
+ 2133 | Dynamic Connectivity | -- | https://cses.fi/problemset/task/2133
+ 2121 | Parcel Delivery      | -- | https://cses.fi/problemset/task/2121
+ 2129 | Task Assignment      | -- | https://cses.fi/problemset/task/2129
+ 2130 | Distinct Routes II   | -- | https://cses.fi/problemset/task/2130
+
+Additional Problems
+ 1087 | Shortest Subsequence          | -- | https://cses.fi/problemset/task/1087
+ 1146 | Counting Bits                 | -- | https://cses.fi/problemset/task/1146
+ 1670 | Swap Game                     | -- | https://cses.fi/problemset/task/1670
+ 1134 | Prüfer Code                   | -- | https://cses.fi/problemset/task/1134
+ 1756 | Acyclic Graph Edges           | -- | https://cses.fi/problemset/task/1756
+ 2177 | Strongly Connected Edges      | -- | https://cses.fi/problemset/task/2177
+ 2179 | Even Outdegree Edges          | -- | https://cses.fi/problemset/task/2179
+ 2422 | Multiplication Table          | -- | https://cses.fi/problemset/task/2422
+ 1142 | Advertisement                 | -- | https://cses.fi/problemset/task/1142
+ 2186 | Special Substrings            | -- | https://cses.fi/problemset/task/2186
+ 2229 | Permutation Inversions        | -- | https://cses.fi/problemset/task/2229
+ 1655 | Maximum Xor Subarray          | -- | https://cses.fi/problemset/task/1655
+ 1664 | Movie Festival Queries        | -- | https://cses.fi/problemset/task/1664
+ 1697 | Chess Tournament              | -- | https://cses.fi/problemset/task/1697
+ 1702 | Tree Traversals               | -- | https://cses.fi/problemset/task/1702
+ 1704 | Network Renovation            | -- | https://cses.fi/problemset/task/1704
+ 1707 | Graph Girth                   | -- | https://cses.fi/problemset/task/1707
+ 1740 | Intersection Points           | -- | https://cses.fi/problemset/task/1740
+ 2214 | Inverse Inversions            | -- | https://cses.fi/problemset/task/2214
+ 2215 | Monotone Subsequences         | -- | https://cses.fi/problemset/task/2215
+ 1743 | String Reorder                | -- | https://cses.fi/problemset/task/1743
+ 2425 | Stack Weights                 | -- | https://cses.fi/problemset/task/2425
+ 1747 | Pyramid Array                 | -- | https://cses.fi/problemset/task/1747
+ 1748 | Increasing Subsequence II     | -- | https://cses.fi/problemset/task/1748
+ 1149 | String Removals               | -- | https://cses.fi/problemset/task/1149
+ 1188 | Bit Inversions                | -- | https://cses.fi/problemset/task/1188
+ 2419 | Xor Pyramid                   | -- | https://cses.fi/problemset/task/2419
+ 1086 | Writing Numbers               | -- | https://cses.fi/problemset/task/1086
+ 1113 | String Transform              | -- | https://cses.fi/problemset/task/1113
+ 2427 | Letter Pair Move Game         | -- | https://cses.fi/problemset/task/2427
+ 1147 | Maximum Building I            | -- | https://cses.fi/problemset/task/1147
+ 1162 | Sorting Methods               | -- | https://cses.fi/problemset/task/1162
+ 1191 | Cyclic Array                  | -- | https://cses.fi/problemset/task/1191
+ 2414 | List of Sums                  | -- | https://cses.fi/problemset/task/2414
+ 2132 | Increasing Array II           | -- | https://cses.fi/problemset/task/2132
+ 1189 | Food Division                 | -- | https://cses.fi/problemset/task/1189
+ 1654 | Bit Problem                   | -- | https://cses.fi/problemset/task/1654
+ 1698 | Swap Round Sorting            | -- | https://cses.fi/problemset/task/1698
+ 2430 | Binary Subsequences           | -- | https://cses.fi/problemset/task/2430
+ 1700 | Tree Isomorphism I            | -- | https://cses.fi/problemset/task/1700
+ 2228 | Counting Sequences            | -- | https://cses.fi/problemset/task/2228
+ 1703 | Critical Cities               | -- | https://cses.fi/problemset/task/1703
+ 1706 | School Excursion              | -- | https://cses.fi/problemset/task/1706
+ 1709 | Coin Grid                     | -- | https://cses.fi/problemset/task/1709
+ 1742 | Robot Path                    | -- | https://cses.fi/problemset/task/1742
+ 2426 | Programmers and Artists       | -- | https://cses.fi/problemset/task/2426
+ 1757 | Course Schedule II            | -- | https://cses.fi/problemset/task/1757
+ 2174 | Removing Digits II            | -- | https://cses.fi/problemset/task/2174
+ 2180 | Coin Arrangement              | -- | https://cses.fi/problemset/task/2180
+ 2176 | Counting Bishops              | -- | https://cses.fi/problemset/task/2176
+ 2432 | Grid Puzzle I                 | -- | https://cses.fi/problemset/task/2432
+ 2131 | Grid Puzzle II                | -- | https://cses.fi/problemset/task/2131
+ 1080 | Empty String                  | -- | https://cses.fi/problemset/task/1080
+ 1078 | Grid Paths                    | -- | https://cses.fi/problemset/task/1078
+ 2115 | Bit Substrings                | -- | https://cses.fi/problemset/task/2115
+ 2075 | Reversal Sorting              | -- | https://cses.fi/problemset/task/2075
+ 2421 | Counting Reorders             | -- | https://cses.fi/problemset/task/2421
+ 1159 | Book Shop II                  | -- | https://cses.fi/problemset/task/1159
+ 1677 | Network Breakdown             | -- | https://cses.fi/problemset/task/1677
+ 1203 | Visiting Cities               | -- | https://cses.fi/problemset/task/1203
+ 2184 | Missing Coin Sum Queries      | -- | https://cses.fi/problemset/task/2184
+ 1157 | Number Grid                   | -- | https://cses.fi/problemset/task/1157
+ 1148 | Maximum Building II           | -- | https://cses.fi/problemset/task/1148
+ 2423 | Filling Trominos              | -- | https://cses.fi/problemset/task/2423
+ 1161 | Stick Divisions               | -- | https://cses.fi/problemset/task/1161
+ 1665 | Coding Company                | -- | https://cses.fi/problemset/task/1665
+ 1699 | Flight Route Requests         | -- | https://cses.fi/problemset/task/1699
+ 2402 | Two Stacks Sorting            | -- | https://cses.fi/problemset/task/2402
+ 1701 | Tree Isomorphism II           | -- | https://cses.fi/problemset/task/1701
+ 1705 | Forbidden Cities              | -- | https://cses.fi/problemset/task/1705
+ 1741 | Area of Rectangles            | -- | https://cses.fi/problemset/task/1741
+ 2429 | Grid Completion               | -- | https://cses.fi/problemset/task/2429
+ 1752 | Creating Offices              | -- | https://cses.fi/problemset/task/1752
+ 1075 | Permutations II               | -- | https://cses.fi/problemset/task/1075
+ 2415 | Functional Graph Distribution | -- | https://cses.fi/problemset/task/2415
+ 1685 | New Flight Routes             | -- | https://cses.fi/problemset/task/1685
+ 2418 | Grid Path Construction        | -- | https://cses.fi/problemset/task/2418
+
