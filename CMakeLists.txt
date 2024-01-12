@@ -9,4 +9,16 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+add_library(Data SHARED tests/WeirdAlgorithmData.cpp)
+
+add_executable(WeirdAlgorithmTest src/WeirdAlgorithm.cpp
+                                  tests/WeirdAlgorithmTest.cpp)
+target_link_libraries(
+  WeirdAlgorithmTest
+  PRIVATE Data
+  PRIVATE Folly::folly
+  PRIVATE GTest::gtest_main)
+
+include(GoogleTest)
+gtest_discover_tests(WeirdAlgorithmTest)
 enable_testing()
