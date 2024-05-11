@@ -6,3 +6,4 @@ RUN apt-get install -y --no-install-recommends ninja-build
 RUN apt-get install -y git
 RUN apt-get install -y --no-install-recommends libgtest-dev
 RUN apt-get install -y --no-install-recommends clangd
+RUN apt-get install -y --no-install-recommends mold

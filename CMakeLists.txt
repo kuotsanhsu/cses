@@ -7,6 +7,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_SCAN_FOR_MODULES OFF)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_link_options("-fuse-ld=mold") # set(CMAKE_LINKER_TYPE MOLD) # CMake 3.29
 
 add_library(Data SHARED tests/WeirdAlgorithmData.cpp)
 
