@@ -1,7 +1,8 @@
 #include "../src/Problems.hpp"
 #include "Data.hpp"
 #include <algorithm>
-#include <folly/portability/GTest.h>
+#include <generator>
+#include <gtest/gtest.h>
 #include <ranges>
 
 TEST(IntroductoryProblems, WeirdAlgorithm) {

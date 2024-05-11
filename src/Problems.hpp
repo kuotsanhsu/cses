@@ -1,5 +1,5 @@
-#include <folly/experimental/coro/Generator.h>
+#include <generator>
 
 namespace IntroductoryProblems {
-folly::coro::Generator<int_fast64_t> WeirdAlgorithm(int_fast32_t n);
+std::generator<int_fast64_t> WeirdAlgorithm(int_fast32_t n);
 }

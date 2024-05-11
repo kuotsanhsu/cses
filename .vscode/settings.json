@@ -1,7 +1,7 @@
 {
+  "cmake.allowUnsupportedPresetsVersions": true,
   "cmake.copyCompileCommands": "${workspaceFolder}/compile_commands.json",
   "cmake.ctest.allowParallelJobs": true,
-  "cmake.ignoreKitEnv": true,
   "cmake.preferredGenerators": [
     "Ninja",
     "Unix Makefiles"

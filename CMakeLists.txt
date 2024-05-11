@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.28.1)
 
 project(cses CXX)
-find_package(folly REQUIRED)
-find_package(gflags REQUIRED)
 find_package(GTest REQUIRED)
 
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -16,7 +14,6 @@ add_executable(WeirdAlgorithmTest src/WeirdAlgorithm.cpp
 target_link_libraries(
   WeirdAlgorithmTest
   PRIVATE Data
-  PRIVATE Folly::folly
   PRIVATE GTest::gtest_main)
 
 include(GoogleTest)
