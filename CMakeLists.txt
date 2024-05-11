@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.28.1)
+cmake_minimum_required(VERSION 3.28)
 
 project(cses CXX)
 find_package(GTest REQUIRED)
