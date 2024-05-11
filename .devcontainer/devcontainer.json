@@ -18,6 +18,7 @@
   // Use 'postCreateCommand' to run commands after the container is created.
   // "postCreateCommand": "gcc -v",
   "mounts": [
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/root/.ssh,type=bind,readonly,consistency=cached",
     "source=${devcontainerId}-build,target=${containerWorkspaceFolder}/build,type=volume",
     "source=${devcontainerId}-clangd,target=${containerWorkspaceFolder}/.cache,type=volume"
   ],
