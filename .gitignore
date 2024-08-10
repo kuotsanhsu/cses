@@ -12,3 +12,6 @@ _deps
 
 /build
 /.cache
+
+/raw
+.DS_Store
