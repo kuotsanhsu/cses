@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+ 
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    int n, m, k;
+    std::cin >> n >> m >> k;
+    std::vector<int> as(n), bs(m);
+    for (auto &a : as) {
+        std::cin >> a;
+    }
+    std::ranges::sort(as);
+    for (auto &b : bs) {
+        std::cin >> b;
+    }
+    std::ranges::sort(bs);
+    auto count = 0;
+    for (auto A = as.cbegin(), B = bs.cbegin(); A != as.cend() && B != bs.cend();) {
+        if (*B < *A - k) {
+            ++B;
+        } else if (*A + k < *B) {
+            ++A;
+        } else {
+            ++A;
+            ++B;
+            ++count;
+        }
+    }
+    std::cout << count << "\n";
+}

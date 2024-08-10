@@ -1,0 +1,45 @@
+#include <iostream>
+#include <algorithm>
+
+template <typename T = long long>
+struct vec2 {
+    T x, y;
+
+    bool between(const vec2 &u, const vec2 &v) const {
+        return (u.x <= x && x <= v.x || u.x >= x && x >= v.x) &&
+               (u.y <= y && y <= v.y || u.y >= y && y >= v.y);
+    }
+    T length_squared() const {
+        return x * x + y * y;
+    }
+    friend T operator*(const vec2 &u, const vec2 &v) {
+        return u.x * v.y - u.y * v.x;
+    }
+    friend vec2 operator-(const vec2 &u, const vec2 &v) {
+        return {u.x - v.x, u.y - v.y};
+    }
+    friend std::istream &operator>>(std::istream &os, vec2 &v) {
+        return os >> v.x >> v.y;
+    }
+};
+
+constexpr auto verdict(bool valid) {
+    return valid ? "YES\n" : "NO\n";
+}
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    int t;
+    std::cin >> t;
+    for (vec2 a, b, c, d; std::cin >> a >> b >> c >> d;) {
+        if (const auto u = b - a, v = d - c; u * v == 0) {
+            std::cout << verdict(c.between(a, b) || d.between(a, b) || a.between(c, d));
+        } else if (const auto p = u * (c - a), q = u * (d - a); p < 0 && q < 0 || p > 0 && q > 0) {
+            std::cout << "NO\n";
+        } else if (const auto p = v * (a - c), q = v * (b - c); p < 0 && q < 0 || p > 0 && q > 0) {
+            std::cout << "NO\n";
+        } else {
+            std::cout << "YES\n";
+        }
+    }
+}

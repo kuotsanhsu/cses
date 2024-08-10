@@ -1,0 +1,16 @@
+#include <iostream>
+#include <ranges>
+#include <map>
+#include <algorithm>
+ 
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    int length = 0, i = 0, j = 0;
+    std::map<int, int> mp;
+    for (const auto k : std::ranges::istream_view<int>(std::cin) | std::views::drop(1)) {
+        ++j;
+        i = std::max(i, std::exchange(mp[k], j));
+        length = std::max(length, j - i);
+    }
+    std::cout << length << "\n";
+}

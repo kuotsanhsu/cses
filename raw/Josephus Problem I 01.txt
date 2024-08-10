@@ -1,0 +1,31 @@
+#include <iostream>
+#include <set>
+#include <array>
+#include <numeric>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    constexpr auto init = [] {
+        std::array<int, std::size_t(2e5)> init;
+        std::iota(init.begin(), init.end(), 1);
+        return init;
+    }();
+
+    int n;
+    std::cin >> n;
+    std::set<int> numbers(init.begin(), init.begin() + n);
+    for (auto N = numbers.begin(); N != numbers.end();) {
+        if (++N == numbers.end()) {
+            N = numbers.begin();
+        }
+        if (N == numbers.end()) {
+            break;
+        }
+        std::cout << *N << " ";
+        N = numbers.erase(N);
+        if (N == numbers.end()) {
+            N = numbers.begin();
+        }
+    }
+    std::cout << "\n";
+}

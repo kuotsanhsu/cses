@@ -1,0 +1,33 @@
+#include <iostream>
+#include <span>
+
+/*
+000
+001
+011
+010
+110
+111
+101
+100
+*/
+
+void print_gray_code(std::string_view code, std::span<char> subcode) {
+    if (subcode.empty()) {
+        std::cout << code << '\n';
+        return;
+    }
+    print_gray_code(code, subcode.subspan(1));
+    subcode[0] ^= '1' ^ '0';
+    print_gray_code(code, subcode.subspan(1));
+}
+
+int main() {
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+
+    int n;
+    std::cin >> n;
+    std::string code(n, '0');
+    print_gray_code(code, code);
+}

@@ -1,0 +1,42 @@
+#include <iostream>
+#include <generator>
+
+/*
+000
+001
+011
+010
+110
+111
+101
+100
+*/
+
+class gray_code_generator {
+public:
+    gray_code_generator(std::size_t n) : code(n, '0') {}
+    auto operator()() {
+        return enumerate(code);
+    }
+private:
+    std::string code;
+    std::generator<std::string_view> enumerate(std::span<char> code) {
+        if (code.empty()) {
+            co_return this->code;
+        }
+        co_yield enumerate(code.subspan(1));
+        code[0] ^= '0' ^ '1';
+        co_yield enumerate(code.subspan(1));
+    }
+};
+
+int main() {
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+
+    int n;
+    std::cin >> n;
+    for (const code : gray_code_generator{n}()) {
+        std::cout << code << '\n';
+    }
+}

@@ -1,0 +1,19 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    int n;
+    std::cin >> n;
+    std::vector<int> ps;
+    for (int p; std::cin >> p;) {
+        ps.push_back(p);
+    }
+    std::ranges::sort(ps);
+    long long cost = 0;
+    for (auto A = ps.cbegin(), B = std::prev(ps.cend()); A < B; ++A, --B) {
+        cost += *B - *A;
+    }
+    std::cout << cost << "\n";
+}

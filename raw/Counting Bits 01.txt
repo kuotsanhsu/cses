@@ -1,0 +1,33 @@
+#include <iostream>
+#include <iterator>
+#include <array>
+
+int msb_position(long long n) {
+    int msb_position = 0;
+    for (; n; n >>= 1) {
+        ++msb_position;
+    }
+    return msb_position - 1;
+}
+
+//    1  1
+//   10  2
+//  100  5   (1 10 11) 100 (101 110 111) 1000
+// 1000 10 + 2^2 - 1
+
+std::array<long long, 50> count_bits_2 = {1};
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    for (int i = 1; i < count_bits_2.size(); ++i) {
+        count_bits_2[i] = count_bits_2[i - 1] * 2 + (1ll << (i - 1)) - 1;
+    }
+    const auto n = *std::istream_iterator<long long>(std::cin);
+    long long count_bits = 0;
+    for (auto a = n; a;) {
+        const auto k = msb_position(a);
+        a -= 1ll << k;
+        count_bits += count_bits_2[k] + a;
+    }
+    std::cout << count_bits << "\n";
+}

@@ -1,0 +1,14 @@
+#include <iostream>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    int n;
+    long long sum;
+    std::cin >> n >> sum;
+    auto max_sum = sum;
+    for (long long x; std::cin >> x;) {
+        sum = std::max(sum + x, x);
+        max_sum = std::max(max_sum, sum);
+    }
+    std::cout << max_sum << "\n";
+}

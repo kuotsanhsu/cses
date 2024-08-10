@@ -1,0 +1,28 @@
+#include <iostream>
+#include <iterator>
+#include <vector>
+#include <ranges>
+
+int main() {
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+    
+    /// Wrong:
+    // auto ints = std::istream_iterator<int>(std::cin);
+    // ++ints;
+    // const auto x = *ints++;
+    
+    /// Correct:
+    // int n, x; std::cin >> n >> x;
+    
+    const auto x = *++std::istream_iterator<int>(std::cin);
+    std::vector ways(x + 1, 0);
+    ways.front() = 1;
+    for (const auto value : std::ranges::istream_view<int>(std::cin)) {
+        for (auto a = ways.begin() + value; a < ways.end(); ++a) {
+            constexpr int mod = 1e9 + 7;
+            *a = (*a + a[-value]) % mod;
+        }
+    }
+    std::cout << ways.back() << "\n";
+}

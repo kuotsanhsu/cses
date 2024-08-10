@@ -1,0 +1,18 @@
+#include <iostream>
+#include <iterator>
+#include <vector>
+#include <ranges>
+
+int main() {
+    constexpr int infinity = 1e6;
+    std::vector<int> steps(*std::istream_iterator<int>(std::cin) + 1, infinity);
+    steps.front() = 0;
+    for (int i = 1; auto &s : steps | std::views::drop(i)) {
+        for (int j = i; j; j /= 10) {
+            s = std::min(s, steps[i - j % 10]);
+        }
+        ++s;
+        ++i;
+    }
+    std::cout << steps.back() << "\n";
+}

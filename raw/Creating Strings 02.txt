@@ -1,0 +1,35 @@
+#include <algorithm>
+#include <iostream>
+#include <ranges>
+#include <span>
+
+void enumerate(std::string_view s, std::span<char> a) {
+    if (a.size() == 1) {
+        std::cout << s << "\n";
+        return;
+    }
+    for (auto b = a.subspan(1);; std::ranges::reverse(b)) {
+        enumerate(s, b);
+        auto u = std::ranges::upper_bound(b | std::views::reverse, a[0]);
+        if (u == b.rend()) {
+            break;
+        }
+        std::swap(*u, a[0]);
+    }
+}
+
+int main() {
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+
+    std::string s;
+    std::cin >> s;
+    std::ranges::sort(s);
+    int k = 1;
+    for (int i = 0, j, prev_ch = '\0'; const auto ch : s) {
+        j = ch == std::exchange(prev_ch, ch) ? j + 1 : 1;
+        k = k * ++i / j;
+    }
+    std::cout << k << "\n";
+    enumerate(s, s);
+}

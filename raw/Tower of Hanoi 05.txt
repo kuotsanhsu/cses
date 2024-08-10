@@ -1,0 +1,66 @@
+global _start
+section .data
+  "1 3\n1 2\n2 1\n2 3\n3 2\n3 1\n"
+  buf db "\n      \0011\n     \0023\n     \0027\n     \00215\n    \00331\n    \00363\n    \003127\n   \004255\n   \004511\n   \0041023\n  \0052047\n  \0054095\n  \0058191\n  \00516383\n \00632767\n \00665535\n \006"
+
+section .text
+print_move:
+  cmp     edi, 7
+  jg      .L9
+  ret
+.L9:
+  push    rbp
+  push    rbx
+  sub     rsp, 8
+  lea     ebp, [rdi-8]
+  mov     ebx, edi
+  and     ebx, 7
+  mov     edi, ebp
+  xor     edi, 1
+  call    print_move
+  lea     esi, [0+rbx*4]
+  movsx   rsi, esi
+  add     rsi, OFFSET FLAT:.LC0
+  mov     edx, 4
+  mov     edi, 1
+  call    write
+  cmp     ebx, 2
+  mov     edi, -3
+  mov     eax, 3
+  cmovle  edi, eax
+  add     edi, ebp
+  call    print_move
+  add     rsp, 8
+  pop     rbx
+  pop     rbp
+  ret
+
+_start:
+  push    rbx
+
+  mov     edx, 2
+  mov     esi, OFFSET FLAT:buf
+  mov     edi, 0
+  call    read
+
+  movzx   eax, BYTE PTR buf[rip+1]
+  cmp     al, 47
+  setg    dl
+  movzx   edx, dl
+  movsx   edx, BYTE PTR buf[rdx]
+  mov     eax, 10
+  mov     ecx, 0
+  cmovle  eax, ecx
+  lea     ebx, [rdx-48+rax]
+  sal     ebx, 3
+  movsx   rax, ebx
+  lea     rsi, buf[rax]
+  movsx   rdx, BYTE PTR buf[rax+7]
+  mov     edi, 1
+  call    write
+
+  mov     edi, ebx
+  call    print_move
+  mov     eax, 0
+  pop     rbx
+  ret

@@ -1,0 +1,30 @@
+#include <iostream>
+#include <iterator>
+#include <algorithm>
+#include <ranges>
+
+int main () {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    auto ints = std::istream_iterator<int>(std::cin);
+
+    const auto n = *ints++;
+    const auto x = *ints++;
+    std::vector<int> price;
+    std::copy_n(ints, n, std::back_inserter(price));
+    const std::vector pages(ints, {});
+
+    // dp[n][x]
+    // dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - price[i]] + pages[i])
+    std::vector<int> dp(x + 1);
+    for (const auto i : std::views::iota(0, n)) {
+        for (const auto j : std::views::iota(price[i], x + 1)) {
+            a[j] = 
+        }
+        if (const auto j = i + 1 - price[i]; j >= 0) {
+            dp[i + 1] = std::max(dp[i], dp[j] + pages[i]);
+        } else {
+            dp[i + 1] = dp[i];
+        }
+    }
+    std::cout << dp.back() << "\n";
+}

@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+#include <iterator>
+
+int main() {
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+    auto ints = std::istream_iterator<int>(std::cin);
+
+    ++ints;
+    const auto x = *ints++;
+    const std::vector values(ints, {});
+    constexpr int infinity = 1e6 + 1;
+    std::vector coins(x + 1, infinity);
+    coins.front() = 0;
+    for (auto a = coins.begin() + 1; a != coins.end(); ++a) {
+        for (const auto value : values) {
+            if (const auto b = a - value; b >= coins.begin()) {
+                *a = std::min(*a, *b);
+            }
+        }
+        ++*a;
+    }
+    if (const auto answer = coins.back(); answer >= infinity) {
+        std::cout << "-1\n";
+    } else {
+        std::cout << answer << "\n";
+    }
+}

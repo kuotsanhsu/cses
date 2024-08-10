@@ -1,0 +1,17 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    int n;
+    std::cin >> n;
+    std::vector<bool> exists(n + 1);
+    auto count = 0;
+    for (int x; std::cin >> x;) {
+        if (!exists[x - 1]) {
+            ++count;
+        }
+        exists[x] = true;
+    }
+    std::cout << count << "\n";
+}

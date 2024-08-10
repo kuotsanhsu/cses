@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <map>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+
+    std::size_t n;
+    std::cin >> n;
+    std::vector<std::pair<int, int>> movies;
+    while (n--) {
+        int a, b;
+        std::cin >> a >> b;
+        movies.emplace_back(b, a);
+    }
+    std::ranges::sort(movies);
+    std::map<int, int> counts{{0, 0}};
+    for (const auto [b, a] : movies) {
+        counts[b] = std::max(
+            std::prev(counts.upper_bound(a))->second + 1,
+            std::prev(counts.upper_bound(b))->second);
+    }
+    std::cout << std::prev(counts.end())->second << "\n";
+}

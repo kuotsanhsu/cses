@@ -1,0 +1,19 @@
+#include <iostream>
+#include <iterator>
+#include <algorithm>
+#include <vector>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    std::vector xs(std::next(std::istream_iterator<int>(std::cin)), {});
+    std::ranges::sort(xs);
+    auto prev = xs.front();
+    auto count = 1;
+    for (const auto x : xs) {
+        if (prev != x) {
+            ++count;
+        }
+        prev = x;
+    }
+    std::cout << count << "\n";
+}

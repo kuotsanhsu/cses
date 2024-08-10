@@ -1,0 +1,40 @@
+#include <iostream>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+ 
+constexpr int infinity = 1e6 + 1;
+ 
+std::vector<int> dollars;
+std::vector<int> coins(1e6 + 1);
+ 
+int minimize(int x) {
+    if (x < 0) {
+        return infinity;
+    } else if (x == 0) {
+        return 0;
+    }
+    auto& cc = coins[x];
+    if (cc == 0) {
+        cc = infinity;
+        for (const auto dollar : dollars) {
+            cc = std::min(cc, minimize(x - dollar));
+        }
+        if (cc != infinity) {
+            ++cc;
+        }
+    }
+    return cc;
+}
+ 
+int main() {
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+ 
+    int n, x;
+    std::cin >> n >> x;
+    dollars.reserve(n);
+    std::ranges::copy(std::ranges::istream_view<int>(std::cin), std::back_inserter(dollars));
+    const auto c = minimize(x);
+    std::cout << (c == infinity ? -1 : c) << "\n";
+}

@@ -1,0 +1,31 @@
+#include <iostream>
+#include <iterator>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    auto ints = std::istream_iterator<int>(std::cin);
+
+    const auto n = *ints++;
+    const auto m = *ints++;
+    const auto k = *ints++;
+    std::vector<int> as;
+    std::copy_n(ints, n, std::back_inserter(as));
+    std::ranges::sort(as);
+    std::vector<int> bs(++ints, {});
+    std::ranges::sort(bs);
+    auto count = 0;
+    for (auto b_it = bs.cbegin(); const auto a : as) {
+        for (; b_it != bs.cend(); ++b_it) {
+            if (a - k <= *b_it) {
+                if (*b_it <= a + k) {
+                    ++b_it;
+                    ++count;
+                }
+                break;
+            }
+        }
+    }
+    std::cout << count << "\n";
+}

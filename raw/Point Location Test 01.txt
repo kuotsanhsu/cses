@@ -1,0 +1,18 @@
+#include <iostream>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    int t;
+    std::cin >> t;
+    for (long long x1, y1, x2, y2, x3, y3; std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;) {
+        const auto a = (x2 - x1) * (y3 - y1);
+        const auto b = (y2 - y1) * (x3 - x1);
+        if (a > b) {
+            std::cout << "LEFT\n";
+        } else if (a == b) {
+            std::cout << "TOUCH\n";
+        } else {
+            std::cout << "RIGHT\n";
+        }
+    }
+}

@@ -1,0 +1,24 @@
+#include <iostream>
+#include <unordered_set>
+#include <vector>
+#include <algorithm>
+ 
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+ 
+    int n;
+    std::cin >> n;
+    std::vector<int> ks(n);
+    std::unordered_set<int> unique_songs;
+    std::size_t length = 0;
+    for (auto A = ks.begin(), B = A; std::cin >> *B; ++B) {
+        if (unique_songs.contains(*B)) {
+            do {
+                unique_songs.erase(*A);
+            } while (*A++ != *B);
+        }
+        unique_songs.insert(*B);
+        length = std::max(length, unique_songs.size());
+    }
+    std::cout << length << "\n";
+}

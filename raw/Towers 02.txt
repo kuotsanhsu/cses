@@ -1,0 +1,17 @@
+#include <iostream>
+#include <ranges>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    std::vector<int> towers;
+    for (const auto k : std::ranges::istream_view<int>(std::cin) | std::views::drop(1)) {
+        if (auto T = std::ranges::upper_bound(towers, k); T == towers.end()) {
+            towers.push_back(k);
+        } else {
+            *T = k;
+        }
+    }
+    std::cout << towers.size() << "\n";
+}

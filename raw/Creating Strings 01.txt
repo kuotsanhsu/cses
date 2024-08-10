@@ -1,0 +1,38 @@
+#include <iostream>
+#include <algorithm>
+#include <span>
+
+void enumerate(std::string_view s, std::span<char> a) {
+    if (a.size() == 1) {
+        std::cout << s << "\n";
+        return;
+    }
+    for (auto b = a.subspan(1);; std::reverse(b.begin(), b.end())) {
+        enumerate(s, b);
+        auto u = std::upper_bound(b.rbegin(), b.rend(), a[0]);
+        if (u == b.rend()) {
+            break;
+        }
+        std::swap(*u, a[0]);
+    }
+}
+
+int main() {
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+
+    std::string s;
+    std::cin >> s;
+    std::sort(s.begin(), s.end());
+    int k = 1;
+    for (int i = 0, j, prev_ch = '\0'; i < s.size(); k = k * (++i) / j) {
+        if (s[i] == prev_ch) {
+            ++j;
+        } else {
+            j = 1;
+        }
+        prev_ch = s[i];
+    }
+    std::cout << k << "\n";
+    enumerate(s, s);
+}

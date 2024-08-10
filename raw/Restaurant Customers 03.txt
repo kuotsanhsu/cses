@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+
+	std::size_t n;
+	std::cin >> n;
+	std::vector<int> as, bs;
+	while (n--) {
+		int a, b;
+		std::cin >> a >> b;
+		as.push_back(a);
+        bs.push_back(b);
+	}
+	std::ranges::sort(as);
+    std::ranges::sort(bs);
+    int count = 0, acc = 0;
+    for (auto A = as.cbegin(), B = bs.cbegin();;) {
+        for (; A != as.cend() && *A <= *B; ++A) {
+            ++acc;
+        }
+        count = std::max(count, acc);
+        if (A == as.cend()) {
+            break;
+        }
+        for (; *A > *B; ++B) {
+            --acc;
+        }
+    }
+	std::cout << count << "\n";
+}

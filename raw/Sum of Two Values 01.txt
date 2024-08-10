@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <ranges>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    int n, x;
+    std::cin >> n >> x;
+    std::vector<std::pair<int, int>> as;
+    for (const auto i : std::views::iota(1, n + 1)) {
+        int a;
+        std::cin >> a;
+        as.emplace_back(a, i);
+    }
+    std::ranges::sort(as);
+    for (auto A = as.cbegin(), B = std::prev(as.cend()); A < B;) {
+        if (const auto sum = A->first + B->first; sum < x) {
+            ++A;
+        } else if (sum > x) {
+            --B;
+        } else {
+            std::cout << A->second << " " << B->second << "\n";
+            return 0;
+        }
+    }
+    std::cout << "IMPOSSIBLE\n";
+}

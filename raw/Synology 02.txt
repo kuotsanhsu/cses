@@ -1,0 +1,54 @@
+#include <iostream>
+#include <list>
+#include <unordered_map>
+
+class Cache {
+private:
+  const std::size_t size;
+  std::list<std::pair<int, int>> key_value;
+  std::unordered_map<int, decltype(key_value)::iterator> order;
+
+public:
+  Cache(std::size_t size) : size(size) {}
+  int get(int key) {
+    if (!order.contains(key)) {
+      return -1;
+    }
+    key_value.splice(key_value.begin(), key_value, order[key]);
+    return key_value.front().second;
+  }
+  void set(int key, int value) {
+    if (get(key) != -1) {
+      key_value.front().second = value;
+      return;
+    }
+    if (order.size() == size) {
+      order.erase(key_value.back().first);
+      key_value.pop_back();
+    }
+    key_value.emplace_front(key, value);
+    order[key] = key_value.begin();
+  }
+};
+
+int main() {
+  {
+    Cache cache(4);
+    cache.set(1, 1);
+    cache.set(2, 2);
+    cache.set(3, 3);
+    cache.set(4, 4);
+    cache.set(5, 5);
+    std::cout << cache.get(1) << std::endl;
+  }
+  {
+    Cache cache(4);
+    cache.set(1, 1);
+    cache.set(2, 2);
+    cache.set(3, 3);
+    cache.set(4, 4);
+    std::cout << cache.get(1) << std::endl;
+    cache.set(5, 5);
+    std::cout << cache.get(2) << std::endl;
+  }
+}

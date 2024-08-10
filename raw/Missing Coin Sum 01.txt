@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    int n;
+    std::cin >> n;
+    std::vector<int> xs;
+    for (int x; std::cin >> x;) {
+        xs.push_back(x);
+    }
+    std::ranges::sort(xs);
+    long long max_sum = 1;
+    for (const auto x : xs) {
+        if (max_sum < x) {
+            break;
+        }
+        max_sum += x;
+    }
+    std::cout << max_sum << "\n";
+}

@@ -1,0 +1,65 @@
+#include <iostream>
+
+struct Node {
+    char data;
+    Node* next;
+};
+
+Node* func(Node *a) {
+    Node dummy = {'\0', a};
+    for (Node *prev = &dummy;;) {
+        Node *a = prev->next;
+        if (!a) {
+            break;
+        }
+        Node *b = a->next;
+        if (!b) {
+            break;
+        }
+        Node *c = b->next;
+        prev->next = b;
+        b->next = a;
+        a->next = c;
+        prev = a;
+    }
+    return dummy.next;
+}
+
+Node* func(Node *a) {
+    Node dummy = {'\0', a};
+    for (Node *prev = &dummy;;) {
+        Node *a = prev->next;
+        if (!a) {
+            break;
+        }
+        Node *b = a->next;
+        if (!b) {
+            break;
+        }
+        prev->next = b;
+        a->next = std::exchange(b->next, a);
+        prev = a;
+    }
+    return dummy.next;
+}
+
+void print(Node *a) {
+    if (!a) {
+        std::cout << std::endl;
+        return;
+    }
+    std::cout << a->data << " ";
+    print(a->next);
+}
+
+int main() {
+    Node
+        // f = {'f', nullptr},
+        // e = {'e', &f},
+        e = {'e', nullptr},
+        d = {'d', &e},
+        c = {'c', &d},
+        b = {'b', &c},
+        a = {'a', &b};
+    print(func(&a));
+}

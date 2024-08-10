@@ -1,0 +1,38 @@
+#include <iostream>
+#include <algorithm>
+#include <array>
+#include <vector>
+#include <span>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    auto ints = std::istream_iterator<int>(std::cin);
+
+    const auto n = *ints++;
+    const auto m = *ints++;
+    const auto k = *ints++;
+    auto as = [n, ints]{
+        static std::array<int, std::size_t(2e5)> as;
+        return std::span(as.begin(), std::copy_n(ints, n, as.begin()));
+    }();
+    std::ranges::sort(as);
+    auto bs = [m, ints = ++ints]{
+        static std::array<int, std::size_t(2e5)> bs;
+        return std::span(bs.begin(), std::copy_n(ints, m, bs.begin()));
+    }();
+    std::ranges::sort(bs);
+
+    auto count = 0;
+    for (auto b_it = bs.begin(); const auto a : as) {
+        for (; b_it != bs.end(); ++b_it) {
+            if (a - k <= *b_it) {
+                if (*b_it <= a + k) {
+                    ++count;
+                    ++b_it;
+                }
+                break;
+            }
+        }
+    }
+    std::cout << count << "\n";
+}

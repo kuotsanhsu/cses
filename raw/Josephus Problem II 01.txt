@@ -1,0 +1,8 @@
+#include <iostream>
+#include <set>
+
+int main() {
+    int n, k;
+    std::cin >> n >> k;
+    std::set<int> numbers;
+}

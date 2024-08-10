@@ -1,0 +1,23 @@
+#include <iostream>
+#include <queue>
+#include <ranges>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    int n;
+    std::cin >> n;
+    std::queue<int> numbers;
+    for (const auto n : std::views::iota(1, n + 1)) {
+        numbers.push(n);
+    }
+    for (bool skip = true; !numbers.empty(); skip = !skip) {
+        const auto n = numbers.front();
+        numbers.pop();
+        if (skip) {
+            numbers.push(n);
+        } else {
+            std::cout << n << " ";
+        }
+    }
+    std::cout << "\n";
+}

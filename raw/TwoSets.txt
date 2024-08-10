@@ -1,0 +1,38 @@
+#include <iostream>
+int main() {
+    int n;
+    std::cin >> n;
+    // n * (n + 1) / 2 is even <=> either n or n+1 can be divided by 4
+    switch (n % 4) {
+        case 1:
+        case 2:
+            std::cout << "NO\n";
+            return 0;
+    }
+    // (1) (2) 3
+    // (1) 2 3 (4)
+    // (1) 2 (3) (4) 5 (6) 7
+    // (1) 2 (3) 4 5 (6) 7 (8)
+    int half = n / 2, parity = n % 2;
+    std::cout << "YES\n" << half + parity << "\n1";
+    for (int i = 3; i <= half; i += 2) {
+        std::cout << ' ' << i;
+    }
+    for (int i = half + 2 - parity; i <= n; i += 2) {
+        std::cout << ' ' << i;
+    }
+    std::cout << "\n";
+    std::cout << half << "\n";
+    if (n == 3) {
+        std::cout << "3\n";
+        return 0;
+    }
+    std::cout << 2;
+    for (int i = 4; i <= half; i += 2) {
+        std::cout << ' ' << i;
+    }
+    for (int i = half + 1 + parity; i <= n; i += 2) {
+        std::cout << ' ' << i;
+    }
+    std::cout << "\n";
+}

@@ -1,0 +1,26 @@
+#include <iostream>
+#include <set>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+
+    std::size_t n, m;
+    std::cin >> n >> m;
+    std::multiset<int> hs;
+    for (std::size_t i = 0; i != n; ++i) {
+        int h;
+        std::cin >> h;
+        hs.insert(h);
+    }
+    for (std::size_t i = 0; i != m; ++i) {
+        int t;
+        std::cin >> t;
+        auto H = hs.lower_bound(t); // WRONG
+        if (H == hs.end()) {
+            std::cout << "-1\n";
+        } else {
+            std::cout << *H << "\n";
+            hs.erase(H);
+        }
+    }
+}

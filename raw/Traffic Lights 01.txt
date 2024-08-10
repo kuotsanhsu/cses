@@ -1,0 +1,20 @@
+#include <iostream>
+#include <set>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    int x, n;
+    std::cin >> x >> n;
+    std::multiset<int> lengths = {x};
+    std::set<int> ps = {0, x};
+    for (int p; std::cin >> p; ps.insert(p)) {
+        const auto B = ps.upper_bound(p);
+        const auto A = std::prev(B);
+        lengths.extract(*B - *A);
+        //lengths.erase(lengths.find(*B - *A));
+        lengths.insert(*B - p);
+        lengths.insert(p - *A);
+        std::cout << *lengths.crbegin() << " ";
+    }
+    std::cout << "\n";
+}

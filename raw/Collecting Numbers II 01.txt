@@ -1,0 +1,48 @@
+#include <iostream>
+#include <vector>
+#include <utility>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+
+    int n, m;
+    std::cin >> n >> m;
+    std::vector<int> xs(1), order(n + 2);
+    for (int i = 1; i <= n; ++i) {
+        int x;
+        std::cin >> x;
+        xs.push_back(x);
+        order[x] = i;
+    }
+
+    auto count = 0;
+    for (auto p = 0; const auto q : order) {
+        if (std::exchange(p, q) > q) {
+            ++count;
+        }
+    }
+
+    for (int a, b; std::cin >> a >> b; std::cout << count << "\n") {
+        auto &x = xs[a], &y = xs[b];
+        if (x == y) {
+            continue;
+        }
+        if (x + 1 == y) {
+            if (a > b) ++count;
+            else       --count;
+        } else if (x == y + 1) {
+            if (a > b) --count;
+            else       ++count;
+        }
+        for (const auto z : {x, y}) {
+            if (order[z - 1] > order[z]) --count;
+            if (order[z] > order[z + 1]) --count;
+        }
+        std::swap(order[x], order[y]);
+        std::swap(x, y);
+        for (const auto z : {x, y}) {
+            if (order[z - 1] > order[z]) ++count;
+            if (order[z] > order[z + 1]) ++count;
+        }
+    }
+}

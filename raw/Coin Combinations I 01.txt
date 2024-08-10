@@ -1,0 +1,41 @@
+#include <iostream>
+#include <vector>
+#include <ranges>
+#include <array>
+#include <algorithm>
+#include <utility>
+
+constexpr std::size_t max_size = 1e6 + 1;
+std::array<int, max_size> ways_cache;
+std::array<bool, max_size> cache_hit;
+std::vector<int> values;
+
+int ways(int x) {
+    if (x <= 0) {
+        return 0;
+    }
+    long long w = ways_cache[x];
+    if (!cache_hit[x]) {
+        cache_hit[x] = true;
+        for (const auto v : values) {
+            w += ways(x - v);
+        }
+        constexpr int mod = 1e9 + 7;
+        ways_cache[x] = w %= mod;
+    }
+    return w;
+}
+
+int main() {
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+
+    int n, x;
+    std::cin >> n >> x;
+    values.reserve(n);
+    std::ranges::copy(std::ranges::istream_view<int>(std::cin), std::back_inserter(values));
+    for (const auto v : values) {
+        ways_cache[v] = 1;
+    }
+    std::cout << ways(x) << "\n";
+}

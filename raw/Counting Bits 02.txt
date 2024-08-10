@@ -1,0 +1,17 @@
+#include <iostream>
+#include <cmath>
+
+int main(){    
+    long long n;
+    std::cin >> n;
+    long long dp[50] = {1};
+    for (int i = 1; i < 50; ++i) 
+        dp[i] = 2 * dp[i - 1] + (1ll << (i - 1)) - 1;
+    long long ans = 0;
+    while (n) {
+        int b = std::log2(n);
+        ans += dp[b];
+        ans += n -= 1ll << b;
+    }
+    std::cout << ans << "\n";
+}

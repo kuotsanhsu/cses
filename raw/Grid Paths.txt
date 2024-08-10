@@ -1,0 +1,25 @@
+#include <iostream>
+#include <iterator>
+#include <vector>
+#include <ranges>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    const auto n = *std::istream_iterator<int>(std::cin);
+    std::vector<long long> counts(n);
+    for (long long left_count = 1;
+        const auto &row : std::ranges::istream_view<std::string>(std::cin)
+    ) {
+        for (const auto i : std::views::iota(0, n)) {
+            if (row[i] == '*') {
+                counts[i] = 0;
+            } else {
+                constexpr int mod = 1e9 + 7;
+                counts[i] = (counts[i] + left_count) % mod;
+            }
+            left_count = counts[i];
+        }
+        left_count = 0;
+    }
+    std::cout << counts.back() << "\n";
+}

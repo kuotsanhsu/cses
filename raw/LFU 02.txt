@@ -1,0 +1,67 @@
+class LFUCache {
+    struct Group {
+        struct KV {
+            int key, value;
+            std::list<Group>::iterator group;
+        };
+        std::size_t frequency;
+        std::list<KV> kvs;
+    };
+    std::size_t capacity;
+    std::list<Group> groups;
+    std::unordered_map<int, std::list<Group::KV>::iterator> order;
+
+    void move(std::list<Group::KV>::iterator kv, std::list<Group>::iterator group, std::size_t frequency) {
+        if (group == groups.end() || frequency != group->frequency) {
+            group = groups.emplace(group, frequency);
+        }
+        group->kvs.splice(group->kvs.begin(), kv->group->kvs, kv);
+        if (kv->group->kvs.empty()) {
+            groups.erase(kv->group);
+        }
+        kv->group = group;
+    }
+public:
+    LFUCache(std::size_t capacity) : capacity(capacity) {}
+    
+    int get(int key) {
+        if (!order.contains(key)) {
+            return -1;
+        }
+        auto kv = order[key];
+        move(kv, std::next(kv->group), kv->group->frequency + 1);
+        return kv->value;
+    }
+    
+    void put(int key, int value) {
+        if (get(key) != -1) {
+            order[key]->value = value;
+            return;
+        }
+        auto group = groups.begin();
+        if (capacity == 0) {
+            auto kv = std::prev(group->kvs.end());
+            move(kv, group, 1);
+            order.erase(std::exchange(kv->key, key));
+            kv->value = value;
+            order[key] = kv;
+            return;
+        }
+        --capacity;
+        if (group == groups.end() || 1 != group->frequency) {
+            group = groups.emplace(group, 1);
+        }
+        auto &kvs = group->kvs;
+        order[key] = kvs.emplace(kvs.begin(), key, value, group);
+    }
+};
+
+const auto _ = [] {
+    return std::cin.tie(nullptr)->sync_with_stdio(false);
+}();
+/**
+ * Your LFUCache object will be instantiated and called as such:
+ * LFUCache* obj = new LFUCache(capacity);
+ * int param_1 = obj->get(key);
+ * obj->put(key,value);
+ */

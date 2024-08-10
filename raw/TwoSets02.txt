@@ -1,0 +1,49 @@
+#include <iostream>
+int main() {
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+
+    int n;
+    std::cin >> n;
+    const int succ = n + 1;
+    const int half = n / 2;
+    int i = 1;
+    switch(n % 4) {
+        // (1) 2 | 3 (4)
+        // (1) 2 (3) 4 | 5 (6) 7 (8)
+        case 0:
+            std::cout << "YES\n"
+                      << succ / 2 << "\n"
+                      << i << " " << succ - i;
+            while ((i += 2) <= half) {
+                std::cout << " " << i << " " << succ - i;
+            }
+            std::cout << "\n"
+                      << half << "\n"
+                      << i << " " << succ - i;
+            while ((i += 2) <= n) {
+                std::cout << " " << i << " " << succ - i;
+            }
+            std::cout << "\n";
+            break;
+        // (1) | (2) 3
+        // (1) 2 (3) | (4) 5 (6) 7
+        case 3:
+            std::cout << "YES\n"
+                      << succ / 2 << "\n"
+                      << i << " " << n - i;
+            while ((i += 2) <= half) {
+                std::cout << " " << i << " " << n - i;
+            }
+            std::cout << "\n"
+                      << half << "\n"
+                      << n << " ";
+            for (; i < n; i += 2) {
+                std::cout << " " << i << " " << n - i;
+            }
+            std::cout << "\n";
+            break;
+        default:
+            std::cout << "NO\n";
+    }
+}

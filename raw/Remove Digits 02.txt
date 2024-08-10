@@ -1,0 +1,22 @@
+#include <iostream>
+#include <iterator>
+#include <array>
+
+int main() {
+    const auto n = *std::istream_iterator<int>(std::cin);
+    static std::array<int, 10> steps;
+    for (int i = 1;;) {
+        for (auto &s : steps) {
+            constexpr int infinity = 1e6;
+            s = infinity;
+            for (int j = i; j; j /= 10) {
+                s = std::min(s, steps[(i - j + 9) % 10]);
+            }
+            ++s;
+            if (++i > n) {
+                std::cout << s << "\n";
+                return 0;
+            }
+        }
+    }
+}

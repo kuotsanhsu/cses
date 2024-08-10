@@ -1,0 +1,50 @@
+type LRUCache struct {
+ currentID int
+ discardID int
+ capacity  int
+ idKeyMap  map[int]int
+ keyIdMap  map[int]int
+ keyValMap map[int]int
+}
+
+func Constructor(capacity int) LRUCache {
+ return LRUCache{
+  capacity:  capacity,
+  idKeyMap:  make(map[int]int),
+  keyIdMap:  make(map[int]int),
+  keyValMap: make(map[int]int),
+ }
+}
+
+func (this *LRUCache) Get(key int) int {
+ if val, ok := this.keyValMap[key]; ok {
+  if id, ok := this.keyIdMap[key]; ok {
+   delete(this.idKeyMap, id)
+  }
+  this.keyIdMap[key] = this.currentID
+  this.idKeyMap[this.currentID] = key
+  this.currentID++
+  return val
+ }
+ return -1
+}
+
+func (this *LRUCache) Put(key int, value int) {
+ if id, ok := this.keyIdMap[key]; ok {
+  delete(this.idKeyMap, id)
+ }
+ this.keyIdMap[key] = this.currentID
+ this.idKeyMap[this.currentID] = key
+ this.currentID++
+
+ this.keyValMap[key] = value
+
+ for len(this.idKeyMap) > this.capacity {
+  if key, ok := this.idKeyMap[this.discardID]; ok {
+   delete(this.idKeyMap, this.discardID)
+   delete(this.keyIdMap, key)
+   delete(this.keyValMap, key)
+  }
+  this.discardID++
+ }
+}

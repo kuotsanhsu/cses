@@ -1,0 +1,21 @@
+#include <iostream>
+#include <iterator>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    auto ints = std::istream_iterator<int>(std::cin);
+
+    ++ints;
+    const auto x = *ints++;
+    std::vector ps(ints, {});
+    std::ranges::sort(ps);
+    auto A = ps.cbegin();
+    for (auto B = std::prev(ps.cend()); A < B; --B) {
+        if (*A + *B <= x) {
+            ++A;
+        }
+    }
+    std::cout << ps.size() - (A - ps.cbegin()) << "\n";
+}

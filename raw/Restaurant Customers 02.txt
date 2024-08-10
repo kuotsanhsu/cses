@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+
+	std::size_t n;
+	std::cin >> n;
+	std::vector<std::pair<int, int>> times;
+	while (n--) {
+		int a, b;
+		std::cin >> a >> b;
+		times.emplace_back(a, 1);
+        times.emplace_back(b, -1);
+	}
+	std::ranges::sort(times);
+    auto count = 0;
+	for (auto acc = 0; const auto [_, x] : times) {
+        count = std::max(count, acc += x);
+	}
+	std::cout << count << "\n";
+}

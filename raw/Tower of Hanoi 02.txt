@@ -1,0 +1,20 @@
+#include <iostream>
+
+void print_move(int n, char source, char intermediate, char destination) {
+    if (n <= 0) {
+        return;
+    }
+    print_move(n - 1, source, destination, intermediate);
+    std::cout << source << " " << destination << "\n";
+    print_move(n - 1, intermediate, source, destination);
+}
+
+int main() {
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+
+    int n;
+    std::cin >> n;
+    std::cout << (1 << n) - 1 << "\n";
+    print_move(n, '1', '2', '3');
+}

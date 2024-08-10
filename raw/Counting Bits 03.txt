@@ -1,0 +1,20 @@
+#include <iostream>
+#include <iterator>
+
+//    1  1
+//   10  2
+//  100  5   (1 10 11) 100 (101 110 111) 1000
+// 1000 10 + 2^2 - 1
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    const auto n = *std::istream_iterator<long long>(std::cin);
+    long long count_bits = 0;
+    for (long long count_bits_2 = 1, power_of_2 = 1; power_of_2 <= n; power_of_2 <<= 1) {
+        if (n & power_of_2) {
+            count_bits += count_bits_2 + (n & (power_of_2 - 1));
+        }
+        count_bits_2 += count_bits_2 + power_of_2 - 1;
+    }
+    std::cout << count_bits << "\n";
+}

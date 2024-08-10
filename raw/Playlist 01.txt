@@ -1,0 +1,27 @@
+#include <iostream>
+#include <set>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+
+    int n;
+    std::cin >> n;
+    std::vector<int> ks;
+    std::set<int> unique_songs;
+    std::size_t length = 0;
+    for (int i = 0, k; std::cin >> k; ks.push_back(k)) {
+        if (unique_songs.contains(k)) {
+            length = std::max(length, unique_songs.size());
+            for (; ks[i] != k; ++i) {
+                unique_songs.erase(ks[i]);
+            }
+            ++i;
+        } else {
+            unique_songs.insert(k);
+            length = std::max(length, unique_songs.size());
+        }
+    }
+    std::cout << length << "\n";
+}

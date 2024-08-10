@@ -1,0 +1,26 @@
+#include <iostream>
+#include <iterator>
+#include <vector>
+
+int main() {
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+    auto ints = std::istream_iterator<int>(std::cin);
+
+    ++ints;
+    const auto x = *ints++;
+    const std::vector values(ints, {});
+    std::vector ways(x + 1, 0);
+    ways.front() = 1;
+    for (auto a = ways.begin() + 1; a != ways.end(); ++a) {
+        long long w = *a;
+        for (const auto value : values) {
+            if (const auto b = a - value; b >= ways.begin()) {
+                w += *b;
+            }
+        }
+        constexpr int mod = 1e9 + 7;
+        *a = w % mod;
+    }
+    std::cout << ways.back() << "\n";
+}

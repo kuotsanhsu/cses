@@ -1,0 +1,66 @@
+class LFUCache {
+    struct Group {
+        struct KV {
+            int key, value;
+            std::list<Group>::iterator group;
+        };
+        std::size_t frequency;
+        std::list<KeyValue> kvs;
+    };
+    std::size_t capacity;
+    std::list<Group> groups;
+    std::unordered_map<int, std::list<Group::KV>::iterator> order;
+public:
+    LFUCache(std::size_t capacity) : capacity(capacity) {}
+    
+    int get(int key) {
+        if (!order.contains(key)) {
+            return -1;
+        }
+        auto kv = order[key];
+        auto group = kv->group;
+        auto nextGroup = std::next(group);
+        if (nextGroup == groups.end() || group->frequency + 1 < nextGroup->frequency) {
+            groups.emplace(nextGroup, group->frequency + 1, {});
+            nextGroup = std::next(group);
+        }
+        nextGroup->kvs.splice(nextGroup->kvs.begin(), group->kvs, kv);
+        if (group->kvs.empty()) {
+            groups.erase(group);
+        }
+        kv->group = nextGroup;
+        return kv->value;
+    }
+    
+    void put(int key, int value) {
+        if (get(key) != -1) {
+            order[key]->value = value;
+            return;
+        }
+        if (capacity == 0) {
+            auto &lfu = groups.front().kvs;
+            order.erase(lfu.back().key);
+            lfu.pop_back();
+            if (lfu.empty()) {
+                groups.pop_front();
+            }
+        } else {
+            --capacity;
+        }
+        if (groups.empty() || groups.front().frequency > 1) {
+            groups.insert(groups.begin(), {1, {}});
+        }
+        groups.front().kvs.emplace_front(key, value, groups.begin());
+        order[key] = groups.front().kvs.begin();
+    }
+};
+
+const auto _ = [] {
+    return std::cin.tie(nullptr)->sync_with_stdio(false);
+}();
+/**
+ * Your LFUCache object will be instantiated and called as such:
+ * LFUCache* obj = new LFUCache(capacity);
+ * int param_1 = obj->get(key);
+ * obj->put(key,value);
+ */

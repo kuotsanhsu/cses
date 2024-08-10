@@ -1,0 +1,25 @@
+#include <iostream>
+#include <set>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+
+    std::size_t n;
+    std::cin >> n;
+    std::vector<std::pair<int, int>> customers;
+    while (n--) {
+        int a, b;
+        std::cin >> a >> b;
+        customers.emplace_back(a, b);
+    }
+    std::ranges::sort(customers);
+    std::size_t count = 0;
+    for (std::set<int> bs; const auto [a, b] : customers) {
+        bs.erase(bs.begin(), bs.lower_bound(a));
+        bs.insert(b);
+        count = std::max(count, bs.size());
+    }
+    std::cout << count << "\n";
+}

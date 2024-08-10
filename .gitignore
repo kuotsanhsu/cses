@@ -13,5 +13,5 @@ _deps
 /build
 /.cache
 
-/raw
+/raw/a.out
 .DS_Store

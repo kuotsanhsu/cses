@@ -1,0 +1,15 @@
+#include <iostream>
+#include <ranges>
+#include <set>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    std::multiset<int> towers;
+    for (const auto k : std::ranges::istream_view<int>(std::cin) | std::views::drop(1)) {
+        if (auto T = towers.upper_bound(k); T != towers.end()) {
+            towers.erase(T);
+        }
+        towers.insert(k);
+    }
+    std::cout << towers.size() << "\n";
+}

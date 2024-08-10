@@ -1,0 +1,23 @@
+#include <iostream>
+#include <iterator>
+#include <array>
+#include <numeric>
+
+int main() {
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+    auto ints = std::istream_iterator<int>(std::cin);
+
+    std::array<int, 6> ws{};
+    ws.back() = 1;
+    for (auto n = *ints++; ;) {
+        for (auto& w : ws) {
+            constexpr int mod = 1e9 + 7;
+            w = std::reduce(ws.begin(), ws.end(), 0ll) % mod;
+            if (--n == 0) {
+                std::cout << w << "\n";
+                return 0;
+            }
+        }
+    }
+}

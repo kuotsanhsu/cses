@@ -1,0 +1,20 @@
+///opt/local/bin/zig c++ -x c++ -std=c++20 -fsyntax-only "$0" ; exit $?
+#include <bit>
+#include <iostream>
+#include <iterator>
+#include <tuple>
+
+int main() {
+    std::cin.tie(nullptr)->sync_with_stdio(false);
+    const auto n = *std::istream_iterator<std::size_t>(std::cin);
+    long long a = 0, b = 1;
+    for (auto m = std::bit_floor(n); m; m >>= 1) {
+        constexpr long long MOD = 1e9 + 7;
+        std::tie(a, b) = m & n ?
+            std::make_pair(a * a + b * b, (2 * a + b) * b) :
+            std::make_pair(a * (2 * b + (MOD - a)), a * a + b * b);
+        a %= MOD;
+        b %= MOD;
+    }
+    std::cout << a << '\n';
+}

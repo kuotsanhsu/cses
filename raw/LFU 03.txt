@@ -1,0 +1,60 @@
+class LFUCache {
+    struct Group {
+        struct KV {
+            int key, value;
+            std::list<Group>::iterator group;
+        };
+        std::size_t frequency;
+        std::list<KV> kvs;
+    };
+    std::size_t capacity;
+    std::list<Group> groups;
+    std::unordered_map<int, std::list<Group::KV>::iterator> order;
+
+    auto prepare(std::list<Group>::iterator group, std::size_t frequency) {
+        return group == groups.end() || frequency != group->frequency ?
+            groups.emplace(group, frequency) : group;
+    }
+
+    int& move(std::list<Group::KV>::iterator kv, std::list<Group>::iterator group, std::size_t frequency) {
+        group = prepare(group, frequency);
+        group->kvs.splice(group->kvs.begin(), kv->group->kvs, kv);
+        if (kv->group->kvs.empty()) {
+            groups.erase(kv->group);
+        }
+        kv->group = group;
+        return kv->value;
+    }
+
+    decltype(auto) move0(decltype(auto) kv) {
+        return move(kv, std::next(kv->group), kv->group->frequency + 1);
+    }
+public:
+    LFUCache(std::size_t capacity) : capacity(capacity) {}
+    
+    int get(int key) {
+        return order.contains(key) ? move0(order[key]) : -1;
+    }
+    
+    void put(int key, int value) {
+        if (order.contains(key)) {
+            move0(order[key]) = value;
+        } else if (capacity == 0) {
+            auto kv = order[key] = std::prev(groups.front().kvs.end());
+            move(kv, kv->group, 1) = value;
+            order.erase(std::exchange(kv->key, key));
+        } else {
+            --capacity;
+            auto group = prepare(groups.begin(), 1);
+            order[key] = group->kvs.emplace(group->kvs.begin(), key, value, group);
+        }
+    }
+};
+
+const auto _ = [] { return std::cin.tie(nullptr)->sync_with_stdio(false); }();
+/**
+ * Your LFUCache object will be instantiated and called as such:
+ * LFUCache* obj = new LFUCache(capacity);
+ * int param_1 = obj->get(key);
+ * obj->put(key,value);
+ */
