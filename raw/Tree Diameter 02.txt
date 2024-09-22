@@ -1,0 +1,18 @@
+// 2 dfs: https://www.geeksforgeeks.org/cses-solutions-tree-diameter/
+#include <iostream>
+#include <vector>
+#include <unordered_set>
+#include <queue>
+#include <algorithm>
+
+int main() {
+  std::cin.tie(nullptr)->sync_with_stdio(false);
+
+  int n;
+  std::cin >> n;
+  std::vector<int> adj(n + 1);
+  for (int a, b; std::cin >> a >> b;) {
+    adj[a].push_back(b);
+    adj[b].push_back(a);
+  }
+}

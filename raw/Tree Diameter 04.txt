@@ -1,0 +1,33 @@
+#include <utility>
+#include <iostream>
+#include <vector>
+#include <queue>
+
+int main() {
+	std::cin.tie(nullptr)->sync_with_stdio(false);
+
+	int n;
+	std::cin >> n;
+	std::vector<std::vector<int>> adj(n + 1);
+	for (int a, b; std::cin >> a >> b;) {
+		adj[a].push_back(b);
+		adj[b].push_back(a);
+	}
+	std::queue<std::pair<int, int>> bfs;
+	int last = 1;
+	for (bfs.emplace(last, last); !bfs.empty();) {
+		const auto [i, j] = bfs.front(); bfs.pop();
+		for (const auto k : adj[j]) if (i != k) bfs.emplace(j, k);
+		last = j;
+	}
+	int dist = -1, count = 1;
+	for (bfs.emplace(last, last); !bfs.empty();) {
+		const auto [i, j] = bfs.front(); bfs.pop();
+		for (const auto k : adj[j]) if (i != k) bfs.emplace(j, k);
+		if (--count == 0) {
+			count = bfs.size();
+			++dist;
+		}
+	}
+	std::cout << dist << '\n';
+}

@@ -1,0 +1,51 @@
+// 2 bfs: https://codeforces.com/blog/entry/79048
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <algorithm>
+
+int main() {
+  std::cin.tie(nullptr)->sync_with_stdio(false);
+
+  int n;
+  std::cin >> n;
+  std::vector<std::vector<int>> adj(n + 1);
+  for (int a, b; std::cin >> a >> b;) {
+    adj[a].push_back(b);
+    adj[b].push_back(a);
+  }
+  std::vector<bool> visited(n + 1);
+  std::queue<int> bfs;
+  int last;
+  for (bfs.push(1); !bfs.empty();) {
+    const auto i = bfs.front();
+    bfs.pop();
+    if (visited[i]) {
+      continue;
+    }
+    last = i;
+    visited[i] = true;
+    for (const auto j : adj[i]) {
+      bfs.push(j);
+    }
+  }
+  std::vector<int> dist(n + 1);
+  // https://stackoverflow.com/questions/63412623/should-c20-stdrangessort-not-need-to-support-stdvectorbool
+  std::fill(visited.begin(), visited.end(), false);
+  for (bfs.push(last); !bfs.empty();) {
+    const auto i = bfs.front();
+    bfs.pop();
+    if (visited[i]) {
+      continue;
+    }
+    last = dist[i];
+    visited[i] = true;
+    for (const auto j : adj[i]) {
+      bfs.push(j);
+      if (!visited[j]) {
+        dist[j] = last + 1;
+      }
+    }
+  }
+  std::cout << last << '\n';
+}

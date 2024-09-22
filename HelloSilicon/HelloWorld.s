@@ -6,7 +6,8 @@
 //
 
 .global _main // The linker requires this symbol.
-.align 4 // Without this, I got a "bus error".
+// https://developer.arm.com/documentation/101754/0622/armclang-Reference/armclang-Integrated-Assembler/Alignment-directives
+.p2align 4 // Without this, I got a "bus error".
 
 _main:
 // write(STDOUT_FILENO, helloworld, 13)
@@ -16,11 +17,8 @@ _main:
 // user_ssize_t write(int fd, user_addr_t cbuf, user_size_t nbyte);
   mov x16, 4
   svc 0x80
-
-// exit(0);
+// return 0;
   mov x0, 0
-// void exit(int rval) NO_SYSCALL_STUB;
-  mov x16, 1
-  svc 0x80
+  ret
 
 helloworld: .ascii "Hello World!\n"

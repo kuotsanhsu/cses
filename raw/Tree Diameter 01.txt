@@ -1,0 +1,42 @@
+// queue of leaves
+#include <iostream>
+#include <vector>
+#include <unordered_set>
+#include <queue>
+#include <algorithm>
+
+int main() {
+  std::cin.tie(nullptr)->sync_with_stdio(false);
+
+  int n;
+  std::cin >> n;
+  if (n <= 1) {
+    std::cout << "0\n";
+    return 0;
+  }
+  std::vector<std::unordered_set<int>> adj(n + 1);
+  for (int a, b; std::cin >> a >> b;) {
+    adj[a].insert(b);
+    adj[b].insert(a);
+  }
+  std::queue<int> leaves;
+  for (int i = 1; i <= n; ++i) {
+    if (adj[i].size() == 1) {
+      leaves.push(i);
+    }
+  }
+  for (std::vector<int> dist(n + 1);;) {
+    const auto i = leaves.front();
+    leaves.pop();
+    const auto j = *adj[i].begin();
+    if (j == leaves.front()) {
+      std::cout << dist[i] + dist[j] + 1 << '\n';
+      break;
+    }
+    dist[j] = std::max(dist[j], dist[i] + 1);
+    adj[j].erase(i);
+    if (adj[j].size() == 1) {
+      leaves.push(j);
+    }
+  }
+}
